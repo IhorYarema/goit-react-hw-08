@@ -1,24 +1,34 @@
 import css from './ContactForm.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from '../../redux/contacts/operations.js';
+import toast from 'react-hot-toast';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.items);
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const form = e.target;
     const name = form.elements.name.value.trim();
     const number = form.elements.number.value.trim();
 
-    if (contacts.find(contact => contact.name === name)) {
-      alert(`${name} also in your phonebook.`);
+    if (
+      contacts.find(
+        contact => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      toast.error(`${name} is already in your phonebook.`);
       return;
     }
 
-    dispatch(addContact({ name, number }));
-    form.reset();
+    try {
+      await dispatch(addContact({ name, number })).unwrap();
+      toast.success('Contact added successfully!');
+      form.reset();
+    } catch {
+      toast.error('Failed to add contact. Please try again.');
+    }
   };
 
   return (

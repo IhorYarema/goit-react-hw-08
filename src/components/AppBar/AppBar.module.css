@@ -2,6 +2,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
-  border-bottom: 1px solid #2a363b;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  box-shadow: 0 8px 15px rgba(38, 99, 235, 0.5);
+  color: #f0f4ff;
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: background 0.4s ease;
+  border-radius: 0 0 20px 20px;
+}
+
+.header:hover {
+  background: linear-gradient(135deg, #8e2de2 0%, #4a00e0 100%);
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 1);
+  }
+}
+
+.navText {
+  animation: pulseGlow 3s infinite;
+  font-weight: 700;
+  font-size: 1.1rem;
+  cursor: pointer;
 }

@@ -1,0 +1,56 @@
+/* EditContactForm.module.css */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+  padding: 16px 24px;
+  border-radius: 16px;
+  color: #e0f2fe;
+  font-family: 'Poppins', sans-serif;
+}
+
+.input {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.saveBtn {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background: linear-gradient(135deg, #34d399 0%, #059669 100%);
+  transform: scale(1.05);
+}
+
+.cancelBtn {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cancelBtn:hover {
+  background: linear-gradient(135deg, #94a3b8 0%, #64748b 100%);
+  transform: scale(1.05);
+}

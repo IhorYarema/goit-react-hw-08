@@ -1,1 +1,15 @@
+.loginForm {
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 30px 24px;
+  background: linear-gradient(135deg, #4f46e5, #3b82f6);
+  border-radius: 16px;
+  box-shadow: 0 6px 25px rgba(59, 130, 246, 0.7);
+  color: #e0e7ff;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
 
+.loginForm:hover {
+  box-shadow: 0 8px 30px rgba(99, 102, 241, 0.9);
+}

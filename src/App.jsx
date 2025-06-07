@@ -7,6 +7,7 @@ import { fetchContacts } from './redux/contacts/operations.js';
 import { AppBar } from './components/AppBar/AppBar.jsx';
 import { setAuthHeader, refreshUser } from './redux/auth/operations.js';
 import { setToken } from './redux/auth/slice.js';
+import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
@@ -49,6 +50,7 @@ const App = () => {
 
   return (
     <>
+      <Toaster position="top-right" reverseOrder={false} />
       <div>
         <AppBar />
         <Suspense fallback={null}>

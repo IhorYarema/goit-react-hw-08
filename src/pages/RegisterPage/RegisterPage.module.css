@@ -1,0 +1,15 @@
+.registerPage {
+  max-width: 420px;
+  margin: 70px auto;
+  padding: 36px 28px;
+  background: linear-gradient(145deg, #10b981, #047857);
+  border-radius: 18px;
+  box-shadow: 0 6px 30px rgba(4, 120, 87, 0.7);
+  color: #d1fae5;
+  user-select: none;
+  transition: box-shadow 0.3s ease;
+}
+
+.registerPage:hover {
+  box-shadow: 0 8px 35px rgba(16, 185, 129, 0.9);
+}

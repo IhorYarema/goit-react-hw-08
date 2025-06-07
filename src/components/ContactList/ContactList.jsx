@@ -17,9 +17,14 @@ export default function ContactList() {
   const loading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
 
-  const filteredContacts = contacts?.filter(contact =>
-    contact?.name?.toLowerCase().includes(debouncedFilter?.toLowerCase() || '')
-  );
+  const normalize = str => str.toLowerCase().replace(/[\s\-()]/g, '');
+  const filteredContacts = contacts?.filter(contact => {
+    const filterText = normalize(debouncedFilter || '');
+    return (
+      normalize(contact?.name || '').includes(filterText) ||
+      normalize(contact?.number || '').includes(filterText)
+    );
+  });
 
   return (
     <ul className={css.list}>

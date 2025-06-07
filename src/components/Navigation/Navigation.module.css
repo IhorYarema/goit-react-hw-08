@@ -1,11 +1,24 @@
 .link {
   display: inline-block;
+  margin-right: 24px;
+  padding: 10px 16px;
+  border-radius: 12px;
   text-decoration: none;
-  padding: 12px;
-  font-weight: 700;
-  color: #2a363b;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #cbd5e1;
+  background: transparent;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.link:hover {
+  color: #f1f5f9;
+  background: rgba(96, 165, 250, 0.1);
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
 }
 
 .link.active {
-  color: #e84a5f;
+  color: #ffffff;
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+  box-shadow: 0 0 12px rgba(147, 197, 253, 0.5);
 }

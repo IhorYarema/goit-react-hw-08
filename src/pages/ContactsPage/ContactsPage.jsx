@@ -17,12 +17,11 @@ export default function TasksPage() {
 
   return (
     <>
-      <title className={css.title}>Your tasks</title>
-      {/* <TaskEditor /> */}
-      <div>{isLoading && 'Request in progress...'}</div>
-      <ContactForm />
-      <SearchBox />
-      <ContactList />
+      <h1 className={css.title}>Your phonebook</h1>
+      <div className={css.loading}>{isLoading && 'Request in progress...'}</div>
+      <ContactForm className={css.myContactForm} />
+      <SearchBox className={css.mySearchBox} />
+      <ContactList className={css.myContactList} />
     </>
   );
 }
