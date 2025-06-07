@@ -1,2 +1,0 @@
-import{j as e}from"./index-BXb3Tjp1.js";const t="_container_fn445_1",i="_title_fn445_8",n={container:t,title:i};function o(){return e.jsxs(e.Fragment,{children:[e.jsx("title",{children:"Welcome"}),e.jsx("div",{className:n.container,children:e.jsxs("h1",{className:n.title,children:["Phonebook welcome page"," ",e.jsx("span",{role:"img","aria-label":"Greeting icon",children:"💁‍♀️"})]})})]})}export{o as default};
-//# sourceMappingURL=HomePage-BGxcYoeq.js.map
