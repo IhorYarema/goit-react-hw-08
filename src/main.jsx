@@ -6,12 +6,6 @@ import App from './App.jsx';
 import { store, persistor } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
-// import { setAuthHeader } from './redux/auth/operations';
-
-// const token = store.getState().auth.token;
-// if (token) {
-//   setAuthHeader(token);
-// }
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

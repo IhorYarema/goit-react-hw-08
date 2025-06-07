@@ -1,13 +1,16 @@
 import { useDispatch } from 'react-redux';
-import { logIn } from '../../redux/auth/operations';
-import css from './LoginForm.module.css';
+import { register } from '../../redux/auth/operations';
+import css from './RegistrationForm.module.css';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const dispatch = useDispatch();
 
   const validationSchema = Yup.object({
+    name: Yup.string()
+      .min(2, 'Minimum 2 characters')
+      .required('Required field'),
     email: Yup.string()
       .email('Invalid email format')
       .required('Required field'),
@@ -16,33 +19,33 @@ export const LoginForm = () => {
       .required('Required field'),
   });
 
-  const handleSubmit = async (values, { resetForm }) => {
-    try {
-      await dispatch(logIn(values)).unwrap();
-      resetForm();
-    } catch (error) {
-      console.log('login error:', error);
-    }
+  const handleSubmit = (values, { resetForm }) => {
+    dispatch(register(values));
+    resetForm();
   };
 
   return (
     <Formik
-      initialValues={{ email: '', password: '' }}
+      initialValues={{ name: '', email: '', password: '' }}
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
       {({ isSubmitting }) => (
-        <Form className={css.form} autoComplete="off">
+        <Form className={css.form}>
+          <label className={css.label}>Username</label>
+          <Field type="text" name="name" className={css.input} />
+          <ErrorMessage name="name" component="div" className={css.error} />
+
           <label className={css.label}>Email</label>
-          <Field type="email" name="email" />
+          <Field type="email" name="email" className={css.input} />
           <ErrorMessage name="email" component="div" className={css.error} />
 
-          <label className={css.label}>Password </label>
-          <Field type="password" name="password" />
+          <label className={css.label}>Password</label>
+          <Field type="password" name="password" className={css.input} />
           <ErrorMessage name="password" component="div" className={css.error} />
 
           <button type="submit" disabled={isSubmitting} className={css.button}>
-            Log In
+            Register
           </button>
         </Form>
       )}
