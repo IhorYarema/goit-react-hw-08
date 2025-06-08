@@ -1,2 +1,0 @@
-import{u as t,s as a,j as e}from"./index-CY_TCueN.js";const r="_container_1ergd_1",c="_title_1ergd_13",o="_span_1ergd_23",s={container:r,title:c,span:o};function l(){const n=t(a);return e.jsxs(e.Fragment,{children:[e.jsxs("h1",{children:["Welcome, ",n.name]}),e.jsx("div",{className:s.container,children:e.jsxs("h1",{className:s.title,children:["Phonebook welcome page"," ",e.jsx("span",{role:"img","aria-label":"Greeting icon",className:s.span,children:"💁‍♀️"})]})})]})}export{l as default};
-//# sourceMappingURL=HomePage-uiH8H3j0.js.map
