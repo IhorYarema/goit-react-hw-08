@@ -50,3 +50,12 @@ export const updateContact = createAsyncThunk(
     }
   }
 );
+
+export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+  try {
+    await axios.post('/users/logout');
+    return true;
+  } catch (e) {
+    return thunkAPI.rejectWithValue(e.message);
+  }
+});
