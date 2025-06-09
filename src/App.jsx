@@ -3,10 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { RestrictedRoute } from './components/RestrictedRoute/RestrictedRoute';
 import { PrivateRoute } from './components/PrivateRoute/PrivateRoute';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from './redux/contacts/operations.js';
 import { AppBar } from './components/AppBar/AppBar.jsx';
-import { setAuthHeader, refreshUser } from './redux/auth/operations.js';
-import { setToken } from './redux/auth/slice.js';
+import { refreshUser } from './redux/auth/operations.js';
+import { selectIsRefreshing } from './redux/auth/selectors.js';
 import { Toaster } from 'react-hot-toast';
 
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
@@ -16,33 +15,11 @@ const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 
 const App = () => {
   const dispatch = useDispatch();
-
-  const { token, isLoggedIn, isRefreshing } = useSelector(state => state.auth);
-
-  useEffect(() => {
-    const localToken = localStorage.getItem('token');
-    if (!localToken) return;
-
-    const cleanToken = localToken.replace(/^"|"$/g, '');
-
-    if (cleanToken && !token) {
-      dispatch(setToken(cleanToken));
-      setAuthHeader(cleanToken);
-      dispatch(refreshUser());
-    }
-  }, [dispatch, token]);
+  const isRefreshing = useSelector(selectIsRefreshing);
 
   useEffect(() => {
-    if (token) {
-      setAuthHeader(token);
-    }
-  }, [token]);
-
-  useEffect(() => {
-    if (isLoggedIn) {
-      dispatch(fetchContacts());
-    }
-  }, [dispatch, isLoggedIn]);
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   if (isRefreshing) {
     return <div>Loading...</div>;
